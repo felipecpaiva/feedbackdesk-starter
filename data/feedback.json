@@ -1,0 +1,72 @@
+[
+  {
+    "id": "fb_001",
+    "customer": "Dana Whitfield",
+    "message": "The export button on the reports page does nothing when I click it on Safari. Works fine on Chrome. Been broken for two days now.",
+    "createdAt": "2026-06-22T09:14:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_002",
+    "customer": "Marcus Lee",
+    "message": "Honestly the new dashboard layout is fantastic. Loading times feel way faster and I found the filters I needed in seconds. Great work.",
+    "createdAt": "2026-06-22T11:02:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_003",
+    "customer": "Priya Nair",
+    "message": "It would be amazing if I could schedule reports to email automatically every Monday morning instead of running them by hand.",
+    "createdAt": "2026-06-23T08:40:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_004",
+    "customer": "Tom Becker",
+    "message": "I have now been charged twice for the same month and nobody from support has replied to my three emails. This is completely unacceptable.",
+    "createdAt": "2026-06-23T15:27:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_005",
+    "customer": "Aisha Rahman",
+    "message": "App crashes every time I upload a CSV larger than about 5MB. Smaller files import fine. Using the latest version on Windows.",
+    "createdAt": "2026-06-24T10:11:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_006",
+    "customer": "Liam O'Connor",
+    "message": "Please add dark mode. My team works late and the bright white screens are rough on the eyes.",
+    "createdAt": "2026-06-24T13:55:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_007",
+    "customer": "Sofia Alvarez",
+    "message": "Your onboarding flow is the smoothest I've used in any SaaS product. I was up and running in under five minutes. Kudos to the team.",
+    "createdAt": "2026-06-25T07:48:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_008",
+    "customer": "Kenji Watanabe",
+    "message": "The mobile site logs me out every few minutes and I lose what I was typing. Extremely frustrating when I'm on the go.",
+    "createdAt": "2026-06-25T18:30:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_009",
+    "customer": "Grace Mensah",
+    "message": "Could you support exporting to Google Sheets directly? Right now I download a CSV and re-import it which is an extra step every day.",
+    "createdAt": "2026-06-26T09:05:00Z",
+    "status": "new"
+  },
+  {
+    "id": "fb_010",
+    "customer": "Ethan Park",
+    "message": "Search returns results that are weeks old even when I filter by 'this week'. The date filter seems to be ignored entirely.",
+    "createdAt": "2026-06-26T14:20:00Z",
+    "status": "new"
+  }
+]
