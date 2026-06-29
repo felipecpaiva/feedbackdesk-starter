@@ -67,15 +67,20 @@ use it.
 
 ## Submitting
 
-When you're done (or time's up), push your work and open a PR **on your own
-fork** of this repo, then share the link:
+Your interviewer will share a repo URL that you already have push access to.
+**Clone it, don't fork it.** Cloning lets you push a branch and open a PR in the
+same repo, ideally before we wrap up so we can look at it together.
 
 ```bash
-# after clicking "Fork" on GitHub
+git clone <the-repo-url-your-interviewer-shares>
+cd <the-folder-it-creates>
 git checkout -b ai-triage
+pnpm install && pnpm dev          # build the feature
 git add -A && git commit -m "Add AI triage"
 git push -u origin ai-triage
-# open the PR against your fork's main
+# then open a PR from the ai-triage branch on GitHub
 ```
 
-That's it — see you in the session. 🎯
+Aim to push and open the PR before the session ends. If you run out of time,
+push whatever you have. We care about the thinking, not a perfect diff. See you
+in the session.
