@@ -50,11 +50,22 @@ You should see an inbox of about 10 feedback items, each showing the customer, t
 message, and empty **category** and **summary** slots. The app runs out of the box,
 **no API key needed yet** (it uses a built-in mock so nothing is blocked).
 
+**Verify your setup (optional but recommended):**
+
+```bash
+pnpm verify
+```
+
+This runs a quick health check (Node version, install, types, lint, tests, build,
+and that the app boots and the inbox loads). All green means your environment and
+the starter are healthy, so anything that breaks later is your code, not the setup.
+
 Other scripts you can run any time:
 
 | Command | What it does |
 |---------|--------------|
 | `pnpm dev` | Start the dev server with hot reload |
+| `pnpm verify` | Health-check the whole setup end to end |
 | `pnpm test` | Run the Vitest tests |
 | `pnpm lint` | Lint the code |
 | `pnpm typecheck` | Check TypeScript types |

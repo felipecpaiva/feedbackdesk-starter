@@ -5,19 +5,24 @@ on:
   pull_request:
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
+  verify:
+    # Exercise the environments candidates actually use, so setup friction
+    # (Node version, Windows shell/line-endings, default Web Storage on Node 24+)
+    # is caught here, not by a candidate mid-interview.
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [22, 24]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
         with:
-          version: 11.9.0   # match a current pnpm (v11) so CI exercises the allowBuilds approval, not the lenient pnpm 9
+          version: 11.9.0   # current pnpm (v11); needs Node >= 22.13
       - uses: actions/setup-node@v4
         with:
-          node-version: 22   # pnpm 11 requires Node >= 22.13
+          node-version: ${{ matrix.node }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm lint
-      - run: pnpm typecheck
-      - run: pnpm test
-      - run: pnpm build
+      - run: pnpm verify   # typecheck + lint + test + build + runtime smoke + baseline integrity
