@@ -155,8 +155,12 @@ const failed = results.filter((r) => !r.ok);
 console.log("");
 if (failed.length === 0) {
   console.log("✅ all checks passed — the baseline is healthy. Focus on the task.");
-  process.exit(0);
 } else {
   console.log(`❌ ${failed.length} check(s) failed: ${failed.map((f) => f.name).join(", ")}`);
-  process.exit(1);
 }
+// Set the code and let the event loop drain so handles close cleanly. Calling
+// process.exit() here trips a Windows/Node-24 libuv assertion (UV_HANDLE_CLOSING)
+// while an idle fetch socket is still closing. The unref'd timer only fires if
+// something genuinely keeps the loop alive.
+process.exitCode = failed.length ? 1 : 0;
+setTimeout(() => process.exit(process.exitCode ?? 0), 3000).unref();
