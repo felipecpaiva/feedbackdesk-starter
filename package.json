@@ -26,8 +26,5 @@
     "tailwindcss": "^4.1.11",
     "typescript": "^5",
     "vitest": "^3.2.4"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp", "unrs-resolver", "@tailwindcss/oxide"]
   }
 }

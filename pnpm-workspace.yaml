@@ -1,0 +1,10 @@
+# pnpm reads build-script approval from here. `onlyBuiltDependencies` was
+# removed in pnpm v11 and replaced by `allowBuilds` (a map of package -> bool).
+# These deps ship prebuilt binaries; allowing their install scripts silences the
+# "Ignored build scripts" message that otherwise appears (and fails install when
+# strictDepBuilds is on) for everyone on pnpm 10.26+.
+allowBuilds:
+  "@tailwindcss/oxide": true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
