@@ -26,6 +26,20 @@ function check(name, ok, detail, fix) {
   if (!ok && fix) console.log(`      → ${fix}`);
 }
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// Kill the dev server and WAIT for it to fully exit before we continue. On
+// Windows, killing the child and exiting immediately races libuv handle cleanup
+// and crashes with a UV_HANDLE_CLOSING assertion, so we await the exit event.
+function shutdown(srv) {
+  return new Promise((res) => {
+    if (!srv || srv.exitCode !== null || srv.killed) return res();
+    let done = false;
+    const fin = () => { if (!done) { done = true; res(); } };
+    srv.once("exit", fin);
+    srv.once("close", fin);
+    try { srv.kill(); } catch { fin(); }
+    setTimeout(() => { try { srv.kill("SIGKILL"); } catch {} fin(); }, 3000).unref();
+  });
+}
 const tail = (s, n = 25) => (s || "").split("\n").slice(-n).join("\n");
 function pnpm(args) {
   // shell:true so Windows resolves pnpm.cmd; args here are simple tokens.
@@ -124,7 +138,7 @@ if (buildOk) {
         "expected the un-triaged baseline; pass --allow-started if you intentionally built the feature.");
     }
   } finally {
-    srv.kill("SIGTERM");
+    await shutdown(srv);
   }
 } else {
   check("dev server boots", false, "skipped", "fix `pnpm build` first.");
