@@ -148,8 +148,11 @@ day to day. We are interested in *how* you work with it, not whether you use it.
   browser-only code (`localStorage`, `window`, `document`) is running on the
   **server** during rendering. Those APIs exist only in the browser. Keep any
   browser-only access inside client interactions (an event handler or a
-  `useEffect`), not in code that runs while the page renders. On Node 22 the error
-  text is misleading, the real cause is still "browser API on the server."
+  `useEffect`), not in code that runs while the page renders. On recent Node (24+,
+  including 25), `localStorage` exists on the server as a non-functional global, so
+  the error is a confusing `TypeError` plus a `--localstorage-file` warning instead
+  of the old clear "localStorage is not defined." The real cause is the same:
+  browser API on the server.
 - **I cannot push my branch.** Use the per-candidate repo URL your interviewer
   shares with you, not a clone of the public template. See "Submitting" below.
 
