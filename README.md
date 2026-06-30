@@ -38,7 +38,8 @@ you need are small and pointed out below, and you can lean on your AI assistant.
 
 ## Quick start
 
-**Prerequisites:** Node 20+ and `pnpm` (`npm install -g pnpm` if you do not have it).
+**Prerequisites:** Node 22+ and `pnpm` (`npm install -g pnpm` if you do not have it).
+Current pnpm (v11) needs Node 22.13 or newer.
 
 ```bash
 pnpm install
@@ -140,7 +141,8 @@ day to day. We are interested in *how* you work with it, not whether you use it.
 - **Which provider should I use?** Any one you like. There is no preferred answer.
 - **Port 3000 is in use.** Run `pnpm dev -- -p 3001` (or free the port).
 - **`pnpm` not found.** Install it with `npm install -g pnpm`, or use `corepack enable`.
-- **Install or build looks odd.** Make sure you are on Node 20+ (`node -v`).
+- **Install or build looks odd.** Make sure you are on Node 22+ (`node -v`). Current
+  pnpm requires it.
 - **I cannot push my branch.** Use the per-candidate repo URL your interviewer
   shares with you, not a clone of the public template. See "Submitting" below.
 
