@@ -143,6 +143,13 @@ day to day. We are interested in *how* you work with it, not whether you use it.
 - **`pnpm` not found.** Install it with `npm install -g pnpm`, or use `corepack enable`.
 - **Install or build looks odd.** Make sure you are on Node 22+ (`node -v`). Current
   pnpm requires it.
+- **`localStorage is not defined`, or `localStorage.getItem is not a function`
+  (often with a `--localstorage-file` warning), and `/` returns 500.** This means
+  browser-only code (`localStorage`, `window`, `document`) is running on the
+  **server** during rendering. Those APIs exist only in the browser. Keep any
+  browser-only access inside client interactions (an event handler or a
+  `useEffect`), not in code that runs while the page renders. On Node 22 the error
+  text is misleading, the real cause is still "browser API on the server."
 - **I cannot push my branch.** Use the per-candidate repo URL your interviewer
   shares with you, not a clone of the public template. See "Submitting" below.
 
